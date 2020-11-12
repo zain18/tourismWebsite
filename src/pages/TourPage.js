@@ -22,7 +22,7 @@ const Tour = () => {
         setUpdated(true);
       })
       .catch((err) => console.error(err));
-  }, [updated]);
+  }, [packageId, updated]);
 
   const addItemToWishlist = (packageId) => {
     axios

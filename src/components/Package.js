@@ -27,7 +27,7 @@ const Package = () => {
     });
 
     console.log(cards);
-  }, [updated]);
+  }, [cards, updated]);
 
   return (
     <div className="subComponent-lg" id="packageBody">

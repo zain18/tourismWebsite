@@ -39,7 +39,7 @@ class NavbarMain extends React.Component {
           fixed={`top`}
           className="navDark">
           <Container>
-            <NavbarBrand href="/">Tourism</NavbarBrand>
+            <NavbarBrand href="/">World Tourism</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
@@ -64,7 +64,9 @@ class NavbarMain extends React.Component {
                       {this.state.isPrivileged ? (
                         <NavLink href="/dashboard">Dashboard</NavLink>
                       ) : (
-                        <NavItem>Hello, {this.state.user.firstName}!</NavItem>
+                        <NavItem>
+                          <NavLink href="">welcome, {this.state.user.firstName}!</NavLink>  
+                          </NavItem>
                       )}
                     </NavItem>
                     <NavItem>
