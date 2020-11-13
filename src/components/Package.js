@@ -56,16 +56,32 @@ const itemCategories = [
 
           <Row className="text-left">
             <CardColumns>
-            {category !== "all"
-                  ? cards.map(tourcard => {
-                    return tourcard.category.map(catItem => {
-                      return catItem === category ? (
-                        <TourCard key={tourcard.id} tourcard={tourcard} />
-                      ) : null;
+              {category !== "all"
+                ? cards.map((card) => {
+                    return card.category.map((catItem) => {
+                      return catItem === category
+                        ? search
+                          ? cards.map((card) => {
+                              return card.title
+                                .toLowerCase()
+                                .includes(search) ? (
+                                <TourCard key={card._id} tourcard={card} />
+                              ) : null;
+                            })
+                          :
+                              <TourCard key={card._id} tourcard={card} />
+                            
+                        : null;
                     });
                   })
-                  : cards.map(tourcard => (
-                    <TourCard key={tourcard.id} tourcard={tourcard} />
+                : search
+                ? cards.map((card) => {
+                    return card.title.toLowerCase().includes(search) ? (
+                      <TourCard key={card._id} tourcard={card} />
+                    ) : null;
+                  })
+                : cards.map((card) => (
+                    <TourCard key={card._id} tourcard={card} />
                   ))}
 
             </CardColumns>
