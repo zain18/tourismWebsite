@@ -20,7 +20,7 @@ const HomePage = () => {
           ? axios.post("/wishlist/create", { user_id: user.id })
           : ""
       );
-  }, []);
+  }, [user.id]);
   return (
     <div id="home">
       <Hero />

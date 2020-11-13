@@ -14,7 +14,7 @@ const itemCategories = [
   "honeymoon",
 ];
 
-const Package = () => {
+  const Package = () => {
   const [cards, setCards] = useState([]);
   const [updated, setUpdated] = useState(false);
   const [category, setCategory] = useState("all");
@@ -30,6 +30,7 @@ const Package = () => {
   }, [cards, updated]);
 
   return (
+    
     <div className="subComponent-lg" id="packageBody">
       <Container>
         <header className="headerTitle text-center">
@@ -55,33 +56,18 @@ const Package = () => {
 
           <Row className="text-left">
             <CardColumns>
-              {category !== "all"
-                ? cards.map((card) => {
-                    return card.category.map((catItem) => {
-                      return catItem === category
-                        ? search
-                          ? cards.map((card) => {
-                              return card.title
-                                .toLowerCase()
-                                .includes(search) ? (
-                                <TourCard key={card._id} tourcard={card} />
-                              ) : null;
-                            })
-                          : cards.map((card) => (
-                              <TourCard key={card._id} tourcard={card} />
-                            ))
-                        : null;
+            {category !== "all"
+                  ? cards.map(tourcard => {
+                    return tourcard.category.map(catItem => {
+                      return catItem === category ? (
+                        <TourCard key={tourcard.id} tourcard={tourcard} />
+                      ) : null;
                     });
                   })
-                : search
-                ? cards.map((card) => {
-                    return card.title.toLowerCase().includes(search) ? (
-                      <TourCard key={card._id} tourcard={card} />
-                    ) : null;
-                  })
-                : cards.map((card) => (
-                    <TourCard key={card._id} tourcard={card} />
+                  : cards.map(tourcard => (
+                    <TourCard key={tourcard.id} tourcard={tourcard} />
                   ))}
+
             </CardColumns>
           </Row>
         </section>
