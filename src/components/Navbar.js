@@ -37,7 +37,8 @@ class NavbarMain extends React.Component {
           dark
           expand="md"
           fixed={`top`}
-          className="navDark">
+          className="navDark"
+        >
           <Container>
             <NavbarBrand href="/">World Tourism</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
@@ -65,16 +66,19 @@ class NavbarMain extends React.Component {
                         <NavLink href="/dashboard">Dashboard</NavLink>
                       ) : (
                         <NavItem>
-                          <NavLink href="">welcome, {this.state.user.firstName}!</NavLink>  
-                          </NavItem>
+                          <NavLink href="">
+                            welcome, {this.state.user.firstName}!
+                          </NavLink>
+                        </NavItem>
                       )}
                     </NavItem>
                     <NavItem>
                       <NavLink
                         href="/auth/logout"
                         className="btn btn-warning "
-                        color="warning">
-                        Log out
+                        color="warning"
+                      >
+                        <i class="fas fa-sign-out-alt"></i>&nbsp; Log out
                       </NavLink>
                     </NavItem>
                   </>
@@ -83,8 +87,9 @@ class NavbarMain extends React.Component {
                     <NavLink
                       href="/auth/login"
                       className="btn btn-success "
-                      color="success">
-                      Login
+                      color="success"
+                    >
+                      <i class="fas fa-sign-in-alt"></i>&nbsp; Login
                     </NavLink>
                   </NavItem>
                 )}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {
+  Alert,
   Button,
   Container,
   Form,
@@ -21,16 +22,32 @@ export const SignupForm = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     try {
-      await axios
-        .post("/auth/signup", {
-          firstName,
-          lastName,
-          email,
-          password,
-        })
-        .catch((err) => console.log(err));
+      await axios.post("/auth/signup", {
+        firstName,
+        lastName,
+        email,
+        password,
+      });
+      if (document.getElementById("form-error").className.includes("visible"))
+        document.getElementById(
+          "form-error"
+        ).className = document
+          .getElementById("form-error")
+          .className.replace(/visible/g, "invisible");
     } catch (err) {
-      console.log(err);
+      let errorMessages = err.response.data.errors;
+      if (errorMessages.email !== "")
+        document.getElementById("form-error").innerHTML =
+          "<p>" + errorMessages.email + "</p>";
+      if (errorMessages.password !== "")
+        document.getElementById("form-error").innerHTML =
+          "<p>" + errorMessages.password + "</p>";
+      if (errorMessages.email !== "" || errorMessages.password !== "")
+        document.getElementById(
+          "form-error"
+        ).className = document
+          .getElementById("form-error")
+          .className.replace(/invisible/g, "visible");
     }
     setEmail("");
     setPassword("");
@@ -99,6 +116,7 @@ export const SignupForm = () => {
           </Col>
         </Row>
         <Button className="btn-success">Create Account</Button>
+        <Alert id="form-error" color="danger" className="invisible"></Alert>
         <FormText style={{ fontSize: ".85rem" }} className="mt-3">
           You already have an account? <a href="/auth/login">Log In</a>
         </FormText>
