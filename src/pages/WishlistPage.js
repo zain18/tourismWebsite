@@ -35,6 +35,7 @@ export default function WishlistPage() {
       setTotal(res.data);
       console.log(res.data);
     }, []);
+    
   });
 
   return (

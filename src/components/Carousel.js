@@ -15,27 +15,27 @@ import {
 const items = [
   {
     src: resort,
-    altText: "Slide 1",
+    altText: "",
     caption: "Resorts"
   },
   {
     src: gulp,
-    altText: "Slide 2",
+    altText: "",
     caption: "Rock Climbing"
   },
   {
     src: camp,
-    altText: "Slide 3",
+    altText: "",
     caption: "Camping"
   },
   {
     src: beach,
-    altText: "Slide 4",
+    altText: "",
     caption: "Beach"
   },
   {
     src: mountain,
-    altText: "Slide 5",
+    altText: "",
     caption: "Mountain Climbing"
   }
 ];
