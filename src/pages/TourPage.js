@@ -68,7 +68,7 @@ const Tour = () => {
                 outline
                 color="primary"
                 style={{ width: "100%", marginBottom: "20px" }}
-                onClick={addItemToWishlist(packageId)}>
+                onClick={() => addItemToWishlist(packageId)}>
                 Add To Wishlist
               </Button>
             </Col>
