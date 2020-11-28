@@ -25,8 +25,6 @@ const itemCategories = [
       setCards(res.data);
       setUpdated(true);
     });
-
-    console.log(cards);
   }, [cards, updated]);
 
   return (

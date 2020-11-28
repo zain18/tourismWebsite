@@ -78,7 +78,7 @@ class NavbarMain extends React.Component {
                         className="btn btn-warning "
                         color="warning"
                       >
-                        <i class="fas fa-sign-out-alt"></i>&nbsp; Log out
+                        <i className="fas fa-sign-out-alt"></i>&nbsp; Log out
                       </NavLink>
                     </NavItem>
                   </>
@@ -89,7 +89,7 @@ class NavbarMain extends React.Component {
                       className="btn btn-success "
                       color="success"
                     >
-                      <i class="fas fa-sign-in-alt"></i>&nbsp; Login
+                      <i className="fas fa-sign-in-alt"></i>&nbsp; Login
                     </NavLink>
                   </NavItem>
                 )}
