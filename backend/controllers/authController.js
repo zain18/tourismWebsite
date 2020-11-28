@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const bcrypt = require("bcryptjs");
 require("dotenv/config");
 
 // handle errors
@@ -18,7 +19,7 @@ const handleErrors = (err) => {
 
   // duplicate email error
   if (err.code === 11000) {
-    errors.email = "that email is already registered";
+    errors.email = "That email is already registered";
     return errors;
   }
 
@@ -60,7 +61,12 @@ module.exports.login = async (req, res) => {
 
   try {
     if (email && password) {
-      const user = await User.findOne({ email: email, password: password });
+      const user = await User.findOne({ email: email });
+
+      if (!user) throw Error("User not found");
+      if (!user.checkPassword(password))
+        throw new Error("Password does not match");
+
       res.status(200).json(user);
       req.session.user = user;
       res.redirect("/");

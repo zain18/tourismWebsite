@@ -21,8 +21,8 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
-  const submitForm = async (e) => {
-    e.preventDefault();
+  const submitForm = async (event) => {
+    event.preventDefault();
     try {
       await axios
         .post("/auth/login", {
@@ -30,7 +30,7 @@ export const LoginForm = () => {
           password,
         })
         .then((res) => dispatch(login(res.data)))
-        .catch((err) => setLoginError(true));
+        .catch((_) => setLoginError(true));
     } catch (err) {
       console.log(err);
     }
@@ -39,7 +39,6 @@ export const LoginForm = () => {
   };
 
   useEffect(() => {
-    console.log(user);
     if (user.firstName) {
       window.location.href = "/";
     }

@@ -28,12 +28,15 @@ export const SignupForm = () => {
         email,
         password,
       });
-      if (document.getElementById("form-error").className.includes("visible"))
+      if (
+        !document.getElementById("form-error").className.includes("invisible")
+      )
         document.getElementById(
           "form-error"
         ).className = document
           .getElementById("form-error")
           .className.replace(/visible/g, "invisible");
+      window.location.href = "/auth/login";
     } catch (err) {
       let errorMessages = err.response.data.errors;
       if (errorMessages.email !== "")

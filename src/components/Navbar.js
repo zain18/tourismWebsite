@@ -67,7 +67,7 @@ class NavbarMain extends React.Component {
                       ) : (
                         <NavItem>
                           <NavLink href="">
-                            welcome, {this.state.user.firstName}!
+                            Welcome, {this.state.user.firstName}!
                           </NavLink>
                         </NavItem>
                       )}
