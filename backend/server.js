@@ -14,6 +14,10 @@ const session = require("express-session");
 require("dotenv/config");
 
 const app = express();
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
+mongoose.set("useUnifiedTopology", true);
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

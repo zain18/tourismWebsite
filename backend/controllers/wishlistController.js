@@ -49,7 +49,8 @@ module.exports.addToWishlist = async (req, res) => {
   try {
     const updatedWishlist = await Wishlist.findOneAndUpdate(
       { user_id: user_id },
-      { $push: { packages: package_id } }
+      { $push: { packages: package_id } },
+      { returnOriginal: false, upsert: true }
     );
     res.json(updatedWishlist);
   } catch (err) {
